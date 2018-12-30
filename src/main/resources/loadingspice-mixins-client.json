@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "therealfarfetchd.loadingspice.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinGuiLoadingCircle",
+    "MixinMinecraftClient",
+    "MixinMinecraftClientSplash",
+    "progress.MixinMinecraftClient",
+    "progress.MixinModelLoader"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

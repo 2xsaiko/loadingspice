@@ -1,0 +1,43 @@
+; Config file for Loading Spice.
+; 12/30/18
+; Comments are prefixed with ';'.
+
+; Uncomment to use the new splash screen
+new_splash
+
+; Show more info when loading a level
+sp_load_more_info
+
+; Use an external directory from where to fetch textures (relative to game directory)
+;use_ext_texture_dir
+;ext_texture_dir ext_resources
+
+; The loading icon texture.
+;gen_load_texture loadingscreen:textures/loadingcircle.png
+
+; The icon texture used on the splash screen.
+;splash_load_texture loadingscreen:textures/loadingcircle.png
+
+; The loading texture's layout (default: a 4x4 grid of images)
+;gen_load_texture_layout 4 4
+;splash_load_texture_layout 4 4
+
+; The loading texture's size (of one image)
+;gen_load_texture_size 32 32
+;splash_load_texture_size 32 32
+
+; The loading texture's position (negative values for right/bottom-aligned)
+;gen_load_texture_align -16 -16
+;splash_load_texture_align -16 -16
+
+; Animation speed (default: 16 ms = 60 FPS)
+;gen_load_texture_speed 16
+;splash_load_texture_speed 16
+
+; The coloring used for the loading icon (red, green, blue, alpha, 0->255)
+;gen_load_texture_color 255 255 255 255
+;splash_load_texture_color 50 50 50 255
+
+; Loading screen text color (red, green, blue, alpha, 0->255)
+;load_text_color 255 255 255 255
+;splash_text_color 0 0 0 255

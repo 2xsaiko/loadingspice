@@ -1,0 +1,17 @@
+{
+  "id": "loadingspice",
+  "name": "Loading Spice",
+  "description": "Put some spice on those bland loading screens!",
+  "version": "1.0.0",
+  "license": "GPLv3",
+  "side": "universal",
+  "authors": ["therealfarfetchd"],
+  "links": {
+    "homepage": "https://github.com/therealfarfetchd/loadingspice",
+    "issues": "https://github.com/therealfarfetchd/loadingspice/issues",
+    "sources": "https://github.com/therealfarfetchd/loadingspice"
+  },
+  "mixins": {
+    "client": "loadingspice-mixins-client.json"
+  }
+}
