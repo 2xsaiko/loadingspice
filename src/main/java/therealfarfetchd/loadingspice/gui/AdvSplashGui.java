@@ -1,6 +1,5 @@
 package therealfarfetchd.loadingspice.gui;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.FontRenderer;
 import net.minecraft.client.gl.GlFramebuffer;
 import net.minecraft.client.gui.Gui;
@@ -72,9 +71,9 @@ public class AdvSplashGui extends Gui {
     }
 
     public void draw(int mouseX, int mouseY, float delta) {
-        GlFramebuffer fb = new GlFramebuffer(this.width, this.height, true, MinecraftClient.isSystemMac);
+        GlFramebuffer fb = client.getFramebuffer();
 
-        fb.beginWrite(false);
+        fb.beginWrite(true);
 
         drawFB();
 
@@ -83,8 +82,6 @@ public class AdvSplashGui extends Gui {
 
         GlStateManager.enableAlphaTest();
         GlStateManager.alphaFunc(516, 0.1F);
-
-        fb.delete();
     }
 
     private void drawFB() {

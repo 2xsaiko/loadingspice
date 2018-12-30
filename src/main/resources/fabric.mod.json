@@ -2,7 +2,7 @@
   "id": "loadingspice",
   "name": "Loading Spice",
   "description": "Spice up those bland loading screens!",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "GPLv3",
   "side": "universal",
   "authors": ["therealfarfetchd"],
