@@ -1,6 +1,7 @@
 package therealfarfetchd.loadingspice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import therealfarfetchd.loadingspice.api.LoadingProgress;
@@ -14,7 +15,7 @@ public class LoadingProgressImpl implements LoadingProgress {
     /* @Nullable */ private TaskInfoImpl current = null;
 
     @Override
-    public TaskInfo pushTask() {
+    public TaskInfo.Mutable pushTask() {
         current = new TaskInfoImpl(current);
         return current;
     }
@@ -33,17 +34,18 @@ public class LoadingProgressImpl implements LoadingProgress {
         popTask(current);
     }
 
-    public TaskInfoImpl getCurrentTask() {
+    public TaskInfo getCurrentTask() {
         return current;
     }
 
-    public static class TaskInfoImpl implements TaskInfo {
+    private static class TaskInfoImpl implements TaskInfo.Mutable {
 
         private String name = "Loading...";
 
         /* @Nullable */ private TaskInfoImpl parent;
 
         private List<TaskInfoImpl> children = new ArrayList<>();
+        private List<TaskInfo> childrenView = Collections.unmodifiableList(children);
 
         private TaskInfoImpl(/* @Nullable */ TaskInfoImpl parent) {
             this.parent = parent;
@@ -54,12 +56,24 @@ public class LoadingProgressImpl implements LoadingProgress {
         }
 
         @Override
-        public TaskInfo withTaskName(String name) {
+        public TaskInfoImpl withTaskName(String name) {
             this.name = name;
             return this;
         }
 
-        public String getTaskText() {
+        /* @Nullable */
+        @Override
+        public TaskInfoImpl getParent() {
+            return parent;
+        }
+
+        @Override
+        public List<TaskInfo> getChildren() {
+            return childrenView;
+        }
+
+        @Override
+        public String getText() {
             return name;
         }
 

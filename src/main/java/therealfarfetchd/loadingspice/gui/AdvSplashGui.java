@@ -21,8 +21,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import therealfarfetchd.loadingspice.LoadingProgressImpl;
-import therealfarfetchd.loadingspice.LoadingProgressImpl.TaskInfoImpl;
 import therealfarfetchd.loadingspice.LoadingSpiceConfig;
+import therealfarfetchd.loadingspice.api.LoadingProgress.TaskInfo;
 
 public class AdvSplashGui extends Gui {
 
@@ -36,6 +36,8 @@ public class AdvSplashGui extends Gui {
 
     private int prog = 0;
     private long lastDraw;
+
+    private TaskInfo[] tasks = new TaskInfo[5];
 
     protected void onInitialized() {
         try {
@@ -96,11 +98,27 @@ public class AdvSplashGui extends Gui {
         final FontRenderer fr = client.fontRenderer;
         if (fr == null) return;
 
-        TaskInfoImpl task = LoadingProgressImpl.INSTANCE.getCurrentTask();
+        int count = 0;
+        tasks[0] = LoadingProgressImpl.INSTANCE.getCurrentTask();
 
-        final String taskText = task == null ? "Loading..." : task.getTaskText();
+        for (int i = 0; i < tasks.length; i++) {
+            if (tasks[i] == null) break;
 
-        fr.draw(taskText, 2, height - fr.fontHeight - 2, color);
+            count++;
+
+            if (i != tasks.length - 1) {
+                tasks[i + 1] = tasks[i].getParent();
+            }
+        }
+
+        fr.draw("Loading...", 2, height - fr.fontHeight - 2, color);
+
+        for (int i = 0; i < count; i++) {
+            TaskInfo task = tasks[i];
+
+            fr.draw(task.getText(), 2, height - (fr.fontHeight + 1) * (count - i + 1) - 1, color);
+        }
+
     }
 
     private void drawLogo() {

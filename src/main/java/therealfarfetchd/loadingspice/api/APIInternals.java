@@ -2,6 +2,9 @@ package therealfarfetchd.loadingspice.api;
 
 import net.fabricmc.loader.FabricLoader;
 
+import java.util.Collections;
+import java.util.List;
+
 import therealfarfetchd.loadingspice.LoadingProgressImpl;
 import therealfarfetchd.loadingspice.LoadingSpice;
 import therealfarfetchd.loadingspice.SplashUtilsImpl;
@@ -27,7 +30,7 @@ public class APIInternals {
     private static class DummyLoadingProgress implements LoadingProgress {
 
         @Override
-        public TaskInfo pushTask() {
+        public TaskInfo.Mutable pushTask() {
             return DummyTaskInfo.INSTANCE;
         }
 
@@ -37,13 +40,28 @@ public class APIInternals {
         @Override
         public void popTask() {}
 
-        private static class DummyTaskInfo implements TaskInfo {
+        private static class DummyTaskInfo implements TaskInfo.Mutable {
 
             public static final DummyTaskInfo INSTANCE = new DummyTaskInfo();
 
             @Override
-            public TaskInfo withTaskName(String name) {
+            public TaskInfo.Mutable withTaskName(String name) {
                 return this;
+            }
+
+            @Override
+            public TaskInfo getParent() {
+                return null;
+            }
+
+            @Override
+            public List<TaskInfo> getChildren() {
+                return Collections.emptyList();
+            }
+
+            @Override
+            public String getText() {
+                return "";
             }
 
         }
