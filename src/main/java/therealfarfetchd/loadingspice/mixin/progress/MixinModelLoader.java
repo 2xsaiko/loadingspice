@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import therealfarfetchd.loadingspice.LoadingProgressImpl;
 
 @Mixin(ModelLoader.class)
-public class MixinModelLoader {
+public abstract class MixinModelLoader {
 
     @Inject(method = "addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", at = @At("HEAD"))
     private void onModelAddStart(ModelIdentifier modelIdentifier_1, CallbackInfo ci) {

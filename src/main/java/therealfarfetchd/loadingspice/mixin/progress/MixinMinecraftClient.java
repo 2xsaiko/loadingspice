@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import therealfarfetchd.loadingspice.LoadingProgressImpl;
 
 @Mixin(MinecraftClient.class)
-public class MixinMinecraftClient {
+public abstract class MixinMinecraftClient {
 
     @Inject(method = "init()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/texture/SpriteAtlasTexture;<init>(Ljava/lang/String;)V"))
     void onSpriteAtlasStart(CallbackInfo ci) {
