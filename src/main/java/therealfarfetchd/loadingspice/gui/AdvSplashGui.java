@@ -146,7 +146,7 @@ public class AdvSplashGui extends Gui {
     private void drawLoadCircle() {
         LoadingSpiceConfig cfg = LoadingSpiceConfig.INSTANCE;
 
-        LoadingIcon.draw(width, height, prog, cfg.splashIconAlign, cfg.splashIconSize, cfg.splashIconGrid, cfg.splashIconColor, icon);
+        LoadingIconRenderer.draw(width, height, prog, cfg.splashIconAlign, cfg.splashIconSize, cfg.splashIconGrid, cfg.splashIconColor, icon);
         if (System.currentTimeMillis() - lastDraw > cfg.splashIconAnimSpeed) {
             lastDraw = System.currentTimeMillis();
             prog++;

@@ -38,6 +38,8 @@ public class LoadingSpiceConfig extends MiniCfg {
     public Color loadingTextColor = Color.WHITE;
     public Color splashTextColor = Color.BLACK;
 
+    public int netIndicatorMode = 0;
+
     @SuppressWarnings("unchecked")
     private LoadingSpiceConfig() {
         disk("config/loading_screen.cfg");
@@ -70,6 +72,8 @@ public class LoadingSpiceConfig extends MiniCfg {
 
         addColor("load_text_color", $ -> loadingTextColor = $);
         addColor("splash_text_color", $ -> splashTextColor = $);
+
+        addInt("net_indicator", $ -> netIndicatorMode = $);
 
         parse();
     }

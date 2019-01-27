@@ -19,7 +19,7 @@ import static com.mojang.blaze3d.platform.GlStateManager.pushMatrix;
 import static com.mojang.blaze3d.platform.GlStateManager.translatef;
 import static org.lwjgl.opengl.GL11.GL_QUADS;
 
-public class LoadingIcon {
+public class LoadingIconRenderer {
 
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     public static void draw(int width, int height, int prog, int[] iconAlign, int[] iconSize, int[] iconGrid, Color iconColor, Identifier iconTexture) {

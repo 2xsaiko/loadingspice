@@ -1,5 +1,5 @@
 ; Config file for Loading Spice.
-; 12/30/18
+; 12/31/18
 ; Comments are prefixed with ';'.
 
 ; Uncomment to use the new splash screen
@@ -41,3 +41,6 @@ sp_load_more_info
 ; Loading screen text color (red, green, blue, alpha, 0->255)
 ;load_text_color 255 255 255 255
 ;splash_text_color 0 0 0 255
+
+; Network activity indicator mode (0=off, 1=load screens only, 2=load screens+player list, 3=everywhere)
+net_indicator 0

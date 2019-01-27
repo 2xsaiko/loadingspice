@@ -3,6 +3,8 @@
   "package": "therealfarfetchd.loadingspice.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinClientConnection",
+    "MixinConnectionStatus",
     "MixinGameRenderer",
     "MixinGuiLoadingCircle",
     "MixinMinecraftClient",

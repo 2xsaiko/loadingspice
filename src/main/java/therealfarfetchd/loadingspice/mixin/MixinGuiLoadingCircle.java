@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import therealfarfetchd.loadingspice.LoadingSpiceConfig;
-import therealfarfetchd.loadingspice.gui.LoadingIcon;
+import therealfarfetchd.loadingspice.gui.LoadingIconRenderer;
 
 @Mixin({WorkingGui.class, CloseWorldGui.class, DownloadingTerrainGui.class, ServerConnectingGui.class})
 public abstract class MixinGuiLoadingCircle extends Gui {
@@ -24,7 +24,7 @@ public abstract class MixinGuiLoadingCircle extends Gui {
     private void draw(int mouseX, int mouseY, float delta, CallbackInfo ci) {
         LoadingSpiceConfig cfg = LoadingSpiceConfig.INSTANCE;
 
-        LoadingIcon.draw(width, height, prog, cfg.loadingIconAlign, cfg.loadingIconSize, cfg.loadingIconGrid, cfg.loadingIconColor, cfg.loadingIconTexture);
+        LoadingIconRenderer.draw(width, height, prog, cfg.loadingIconAlign, cfg.loadingIconSize, cfg.loadingIconGrid, cfg.loadingIconColor, cfg.loadingIconTexture);
         if (System.currentTimeMillis() - lastDraw > cfg.loadingIconAnimSpeed) {
             lastDraw = System.currentTimeMillis();
             prog++;
