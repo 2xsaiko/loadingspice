@@ -7,7 +7,7 @@ import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.Identifier;
 
-import java.util.regex.Pattern;
+import com.mojang.blaze3d.platform.GlStateManager;
 
 import therealfarfetchd.loadingspice.LoadingSpice;
 import therealfarfetchd.loadingspice.LoadingSpiceConfig;
@@ -31,7 +31,9 @@ public class SPLevelLoadGui extends WorldGenerationProgressGui {
 
     @Override
     public void draw(int mouseX, int mouseY, float delta) {
-        super.draw(mouseX, mouseY, delta);
+        this.drawBackground();
+
+        GlStateManager.enableBlend();
 
         int genChunksPct = min(tracker.getProgressPercentage(), 100);
 
@@ -60,6 +62,10 @@ public class SPLevelLoadGui extends WorldGenerationProgressGui {
         // client.fontRenderer.draw(s2, -height + 55 + 26 - 52 - client.fontRenderer.getStringWidth(s2), 16, color);
         client.fontRenderer.draw(s2, -height + 55 + 26 - 52 - client.fontRenderer.getStringWidth(s2), 4, color);
         popMatrix();
+
+        int scale = 2;
+        int size = scale * tracker.getSize();
+        drawChunkMap(this.tracker, 16 + size / 2, height - size / 2 - 4, scale, 0);
     }
 
     private void drawIcon(int x, int y, int index) {

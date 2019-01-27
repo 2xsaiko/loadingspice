@@ -2,7 +2,6 @@ package therealfarfetchd.loadingspice.mixin;
 
 import net.minecraft.client.gui.CloseWorldGui;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.WorldGenerationProgressGui;
 import net.minecraft.client.gui.menu.DownloadingTerrainGui;
 import net.minecraft.client.gui.menu.ServerConnectingGui;
 import net.minecraft.client.gui.menu.WorkingGui;
@@ -14,8 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import therealfarfetchd.loadingspice.LoadingSpiceConfig;
 import therealfarfetchd.loadingspice.gui.LoadingIconRenderer;
+import therealfarfetchd.loadingspice.gui.SPLevelLoadGui;
 
-@Mixin({WorkingGui.class, CloseWorldGui.class, DownloadingTerrainGui.class, ServerConnectingGui.class, WorldGenerationProgressGui.class})
+@Mixin({WorkingGui.class, CloseWorldGui.class, DownloadingTerrainGui.class, ServerConnectingGui.class, SPLevelLoadGui.class})
 public abstract class MixinGuiLoadingCircle extends Gui {
 
     private int prog = 0;
