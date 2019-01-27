@@ -21,7 +21,7 @@ public abstract class MixinMinecraftClientSplash {
         method = "init()V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/MinecraftClient;method_1567()V",
+            target = "Lnet/minecraft/client/MinecraftClient;drawGuiWithoutMouse()V",
             shift = Shift.AFTER
         )
     )

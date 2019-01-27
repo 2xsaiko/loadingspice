@@ -24,8 +24,8 @@ public abstract class MixinGameRenderer {
         }
     }
 
-    @Inject(method = "method_3192(FJZ)V", at = @At("RETURN"))
-    private void method_3192(float float_1, long long_1, boolean boolean_1, CallbackInfo ci) {
+    @Inject(method = "render(FJZ)V", at = @At("RETURN"))
+    private void render(float float_1, long long_1, boolean boolean_1, CallbackInfo ci) {
         ConnectionStatusRenderer.draw();
     }
 

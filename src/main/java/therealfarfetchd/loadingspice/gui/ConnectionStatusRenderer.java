@@ -127,7 +127,7 @@ public class ConnectionStatusRenderer {
             client.currentGui instanceof DownloadingTerrainGui ||
             client.currentGui instanceof ServerConnectingGui)) return true;
 
-        if (mode >= 2 && client.options.keyPlayerList.method_1434()) return true;
+        if (mode >= 2 && client.options.keyPlayerList.isPressed()) return true;
 
         if (mode >= 3) return true;
 

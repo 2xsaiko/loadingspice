@@ -122,7 +122,7 @@ public class SplashUtilsImpl implements SplashUtils {
     private void updateScreen() {
         mc.window.method_4493(MinecraftClient.isSystemMac);
         mc.currentGui.draw(0, 0, 0.0F);
-        mc.displayUpdate(false);
+        mc.updateDisplay(false);
     }
 
 }

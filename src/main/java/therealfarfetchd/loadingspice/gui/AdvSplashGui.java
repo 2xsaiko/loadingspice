@@ -80,7 +80,7 @@ public class AdvSplashGui extends Gui {
         drawFB();
 
         fb.endWrite();
-        fb.draw(this.client.window.getWindowWidth(), this.client.window.getWindowHeight());
+        fb.draw(this.client.window.getWidth(), this.client.window.getHeight());
 
         GlStateManager.enableAlphaTest();
         GlStateManager.alphaFunc(516, 0.1F);
@@ -132,9 +132,9 @@ public class AdvSplashGui extends Gui {
         Tessellator tessellator_1 = Tessellator.getInstance();
         BufferBuilder bufferBuilder_1 = tessellator_1.getBufferBuilder();
         bufferBuilder_1.begin(7, VertexFormats.POSITION_UV_COLOR);
-        bufferBuilder_1.vertex(0.0D, (double) this.client.window.getWindowHeight(), 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
-        bufferBuilder_1.vertex((double) this.client.window.getWindowWidth(), (double) this.client.window.getWindowHeight(), 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
-        bufferBuilder_1.vertex((double) this.client.window.getWindowWidth(), 0.0D, 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
+        bufferBuilder_1.vertex(0.0D, (double) this.client.window.getHeight(), 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
+        bufferBuilder_1.vertex((double) this.client.window.getWidth(), (double) this.client.window.getHeight(), 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
+        bufferBuilder_1.vertex((double) this.client.window.getWidth(), 0.0D, 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
         bufferBuilder_1.vertex(0.0D, 0.0D, 0.0D).texture(0.0D, 0.0D).color(255, 255, 255, 255).next();
         tessellator_1.draw();
 

@@ -1,7 +1,8 @@
 package therealfarfetchd.loadingspice.mixin;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.menu.WorkingGui;
+import net.minecraft.client.gui.WorldGenerationProgressGui;
+import net.minecraft.client.gui.WorldGenerationProgressTracker;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,11 +17,11 @@ public abstract class MixinMinecraftClient {
         method = "startIntegratedServer(Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/world/level/LevelInfo;)V",
         at = @At(
             value = "NEW",
-            target = "net/minecraft/client/gui/menu/WorkingGui"
+            target = "net/minecraft/client/gui/WorldGenerationProgressGui"
         )
     )
-    public WorkingGui constructWorkingGui() {
-        return new SPLevelLoadGui();
+    public WorldGenerationProgressGui constructWorkingGui(WorldGenerationProgressTracker tracker) {
+        return new SPLevelLoadGui(tracker);
     }
 
 }

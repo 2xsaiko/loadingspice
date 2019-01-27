@@ -5,8 +5,8 @@ import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.Identifier;
-import com.mojang.blaze3d.platform.GlStateManager.DstBlendFactor;
-import com.mojang.blaze3d.platform.GlStateManager.SrcBlendFactor;
+import com.mojang.blaze3d.platform.GlStateManager.DestFactor;
+import com.mojang.blaze3d.platform.GlStateManager.SourceFactor;
 
 import java.awt.Color;
 
@@ -37,7 +37,7 @@ public class LoadingIconRenderer {
 
         pushMatrix();
         enableBlend();
-        blendFunc(SrcBlendFactor.SRC_ALPHA, DstBlendFactor.ONE_MINUS_SRC_ALPHA);
+        blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
         translatef(posX, posY, 0);
 
         Tessellator t = Tessellator.getInstance();
