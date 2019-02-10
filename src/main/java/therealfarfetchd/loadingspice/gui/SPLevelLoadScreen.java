@@ -1,12 +1,11 @@
 package therealfarfetchd.loadingspice.gui;
 
-import net.minecraft.client.gui.WorldGenerationProgressGui;
+import net.minecraft.client.gui.WorldGenerationProgressScreen;
 import net.minecraft.client.gui.WorldGenerationProgressTracker;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.Identifier;
-
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import therealfarfetchd.loadingspice.LoadingSpice;
@@ -18,13 +17,13 @@ import static com.mojang.blaze3d.platform.GlStateManager.rotatef;
 import static java.lang.Math.min;
 import static org.lwjgl.opengl.GL11.GL_QUADS;
 
-public class SPLevelLoadGui extends WorldGenerationProgressGui {
+public class SPLevelLoadScreen extends WorldGenerationProgressScreen {
 
     private static final Identifier TEXTURE = new Identifier(LoadingSpice.MODID, "textures/sploadicons.png");
 
     private final WorldGenerationProgressTracker tracker;
 
-    public SPLevelLoadGui(WorldGenerationProgressTracker tracker) {
+    public SPLevelLoadScreen(WorldGenerationProgressTracker tracker) {
         super(tracker);
         this.tracker = tracker;
     }

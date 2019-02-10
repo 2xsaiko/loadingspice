@@ -14,12 +14,12 @@ import therealfarfetchd.loadingspice.LoadingProgressImpl;
 public abstract class MixinMinecraftClient {
 
     @Inject(method = "init()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/BakedModelManager;<init>(Lnet/minecraft/client/texture/SpriteAtlasTexture;)V"))
-    void onModelLoadStart(CallbackInfo ci) {
+    private void onModelLoadStart(CallbackInfo ci) {
         LoadingProgressImpl.INSTANCE.pushTask().withTaskName("Loading models");
     }
 
     @Inject(method = "init()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/resource/ReloadableResourceManager;addListener(Lnet/minecraft/resource/ResourceReloadListener;)V", ordinal = 6, shift = Shift.AFTER))
-    void onModelLoadEnd(CallbackInfo ci) {
+    private void onModelLoadEnd(CallbackInfo ci) {
         LoadingProgressImpl.INSTANCE.popTask();
     }
 

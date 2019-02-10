@@ -1,10 +1,10 @@
 package therealfarfetchd.loadingspice.mixin;
 
-import net.minecraft.client.gui.CloseWorldGui;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.menu.DownloadingTerrainGui;
-import net.minecraft.client.gui.menu.ServerConnectingGui;
-import net.minecraft.client.gui.menu.WorkingGui;
+import net.minecraft.client.gui.CloseWorldScreen;
+import net.minecraft.client.gui.Screen;
+import net.minecraft.client.gui.menu.DownloadingTerrainScreen;
+import net.minecraft.client.gui.menu.ServerConnectingScreen;
+import net.minecraft.client.gui.menu.WorkingScreen;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,10 +13,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import therealfarfetchd.loadingspice.LoadingSpiceConfig;
 import therealfarfetchd.loadingspice.gui.LoadingIconRenderer;
-import therealfarfetchd.loadingspice.gui.SPLevelLoadGui;
+import therealfarfetchd.loadingspice.gui.SPLevelLoadScreen;
 
-@Mixin({WorkingGui.class, CloseWorldGui.class, DownloadingTerrainGui.class, ServerConnectingGui.class, SPLevelLoadGui.class})
-public abstract class MixinGuiLoadingCircle extends Gui {
+@Mixin({WorkingScreen.class, CloseWorldScreen.class, DownloadingTerrainScreen.class, ServerConnectingScreen.class, SPLevelLoadScreen.class})
+public abstract class MixinGuiLoadingCircle extends Screen {
 
     private int prog = 0;
     private long lastDraw;

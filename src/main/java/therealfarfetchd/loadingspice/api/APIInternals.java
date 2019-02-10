@@ -1,29 +1,20 @@
 package therealfarfetchd.loadingspice.api;
 
-import net.fabricmc.loader.FabricLoader;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.util.Collections;
 import java.util.List;
 
 import therealfarfetchd.loadingspice.LoadingProgressImpl;
 import therealfarfetchd.loadingspice.LoadingSpice;
-import therealfarfetchd.loadingspice.SplashUtilsImpl;
 
 public class APIInternals {
 
     static LoadingProgress getLoadingProgress() {
-        if (FabricLoader.INSTANCE.isModLoaded(LoadingSpice.MODID)) {
+        if (FabricLoader.getInstance().isModLoaded(LoadingSpice.MODID)) {
             return LoadingProgressImpl.INSTANCE;
         } else {
             return DummyLoadingProgress.INSTANCE;
-        }
-    }
-
-    static SplashUtils getSplashUtils() {
-        if (FabricLoader.INSTANCE.isModLoaded(LoadingSpice.MODID)) {
-            return SplashUtilsImpl.INSTANCE;
-        } else {
-            return DummySplashUtils.INSTANCE;
         }
     }
 
@@ -65,18 +56,6 @@ public class APIInternals {
             }
 
         }
-
-    }
-
-    private static class DummySplashUtils implements SplashUtils {
-
-        public static final DummySplashUtils INSTANCE = new DummySplashUtils();
-
-        @Override
-        public void pause() {}
-
-        @Override
-        public void resume() {}
 
     }
 

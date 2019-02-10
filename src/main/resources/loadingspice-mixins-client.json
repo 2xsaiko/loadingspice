@@ -4,11 +4,10 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinClientConnection",
-    "MixinConnectionStatus",
     "MixinGameRenderer",
     "MixinGuiLoadingCircle",
     "MixinMinecraftClient",
-    "MixinMinecraftClientSplash",
+    "MixinSplashScreen",
     "progress.MixinMinecraftClient",
     "progress.MixinModelLoader",
     "progress.MixinSpriteAtlasTexture",

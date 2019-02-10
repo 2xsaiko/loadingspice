@@ -1,9 +1,9 @@
 package therealfarfetchd.loadingspice.gui;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.menu.DownloadingTerrainGui;
-import net.minecraft.client.gui.menu.ServerConnectingGui;
-import net.minecraft.client.gui.menu.WorkingGui;
+import net.minecraft.client.gui.menu.DownloadingTerrainScreen;
+import net.minecraft.client.gui.menu.ServerConnectingScreen;
+import net.minecraft.client.gui.menu.WorkingScreen;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
@@ -116,16 +116,16 @@ public class ConnectionStatusRenderer {
     private static boolean isInGame() {
         MinecraftClient client = MinecraftClient.getInstance();
 
-        return client.getNetworkHandler() != null || client.currentGui instanceof ServerConnectingGui;
+        return client.getNetworkHandler() != null || client.currentScreen instanceof ServerConnectingScreen;
     }
 
     private static boolean checkMode() {
         MinecraftClient client = MinecraftClient.getInstance();
         int mode = LoadingSpiceConfig.INSTANCE.netIndicatorMode;
 
-        if (mode >= 1 && (client.currentGui instanceof WorkingGui ||
-            client.currentGui instanceof DownloadingTerrainGui ||
-            client.currentGui instanceof ServerConnectingGui)) return true;
+        if (mode >= 1 && (client.currentScreen instanceof WorkingScreen ||
+            client.currentScreen instanceof DownloadingTerrainScreen ||
+            client.currentScreen instanceof ServerConnectingScreen)) return true;
 
         if (mode >= 2 && client.options.keyPlayerList.isPressed()) return true;
 

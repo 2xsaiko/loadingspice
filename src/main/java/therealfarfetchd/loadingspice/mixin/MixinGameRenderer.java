@@ -18,7 +18,7 @@ public abstract class MixinGameRenderer {
      * Fixes a crash where the screen gets resized after GameRenderer was created but before WorldRenderer was created
      */
     @Redirect(method = "method_3169(II)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;method_3242(II)V"))
-    private void method_3242(WorldRenderer worldRenderer, int int_1, int int_2) {
+    private void method_3169(WorldRenderer worldRenderer, int int_1, int int_2) {
         if (worldRenderer != null) {
             worldRenderer.method_3242(int_1, int_2);
         }
