@@ -9,7 +9,7 @@ base {
 }
 
 group = "therealfarfetchd.loadingspice"
-version = "1.0.4"
+version = "1.1.0"
 
 java {
   sourceCompatibility = VERSION_1_8
