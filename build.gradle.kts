@@ -20,10 +20,10 @@ minecraft {
 }
 
 dependencies {
-  minecraft("com.mojang:minecraft:19w06a")
-  mappings("net.fabricmc:yarn:19w06a.3")
-  modCompile("net.fabricmc:fabric-loader:0.3.5.106")
+  minecraft("com.mojang:minecraft:19w07a")
+  mappings("net.fabricmc:yarn:19w07a.6")
+  modCompile("net.fabricmc:fabric-loader:0.3.6.107")
 
   // Fabric API. This is technically optional, but you probably want it anyway.
-  modCompile("net.fabricmc:fabric:0.2.0.90")
+  modCompile("net.fabricmc:fabric:0.2.1.94")
 }

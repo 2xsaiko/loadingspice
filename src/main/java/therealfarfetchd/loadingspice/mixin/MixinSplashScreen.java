@@ -26,9 +26,9 @@ public abstract class MixinSplashScreen extends Screen {
     private int prog = 0;
     private long lastDraw;
 
-    private TaskInfo[] tasks = new TaskInfo[5];
+//    private TaskInfo[] tasks = new TaskInfo[5];
 
-    private FontRenderer fr;
+//    private FontRenderer fr;
 
     @Inject(method = "draw(IIF)V", at = @At("RETURN"))
     private void draw(int int_1, int int_2, float float_1, CallbackInfo ci) {
@@ -55,33 +55,32 @@ public abstract class MixinSplashScreen extends Screen {
     private void drawProgress() {
         int color = LoadingSpiceConfig.INSTANCE.splashTextColor.getRGB();
 
-//        final FontRenderer fr = client.fontRenderer;
-        if (fr == null) {
-            final FontStorage fontStorage_1 = new FontStorage(client.getTextureManager(), new Identifier("loading"));
-            fontStorage_1.method_2004(Collections.singletonList(FontType.BITMAP.createLoader(new JsonParser().parse(JSON).getAsJsonObject()).load(client.getResourceManager())));
-            fr = new FontRenderer(client.getTextureManager(), fontStorage_1);
-        }
-
-        int count = 0;
-        tasks[0] = LoadingProgressImpl.INSTANCE.getCurrentTask();
-
-        for (int i = 0; i < tasks.length; i++) {
-            if (tasks[i] == null) break;
-
-            count++;
-
-            if (i != tasks.length - 1) {
-                tasks[i + 1] = tasks[i].getParent();
-            }
-        }
-
-        fr.draw("Loading...", 2, height - fr.fontHeight - 2, color);
-
-        for (int i = 0; i < count; i++) {
-            TaskInfo task = tasks[i];
-
-            fr.draw(task.getText(), 2, height - (fr.fontHeight + 1) * (count - i + 1) - 1, color);
-        }
+//        if (fr == null) {
+//            final FontStorage fontStorage_1 = new FontStorage(client.getTextureManager(), new Identifier("loading"));
+//            fontStorage_1.method_2004(Collections.singletonList(FontType.BITMAP.createLoader(new JsonParser().parse(JSON).getAsJsonObject()).load(client.getResourceManager())));
+//            fr = new FontRenderer(client.getTextureManager(), fontStorage_1);
+//        }
+//
+//        int count = 0;
+//        tasks[0] = LoadingProgressImpl.INSTANCE.getCurrentTask();
+//
+//        for (int i = 0; i < tasks.length; i++) {
+//            if (tasks[i] == null) break;
+//
+//            count++;
+//
+//            if (i != tasks.length - 1) {
+//                tasks[i + 1] = tasks[i].getParent();
+//            }
+//        }
+//
+//        fr.draw("Loading...", 2, height - fr.fontHeight - 2, color);
+//
+//        for (int i = 0; i < count; i++) {
+//            TaskInfo task = tasks[i];
+//
+//            fr.draw(task.getText(), 2, height - (fr.fontHeight + 1) * (count - i + 1) - 1, color);
+//        }
 
     }
 
